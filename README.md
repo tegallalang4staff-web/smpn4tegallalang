@@ -1,0 +1,2 @@
+# smpn4tegallalang
+sekolahku
