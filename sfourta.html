@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Resmi SMPN 4 Tegallalang - Kabupaten Gianyar</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cinzel Decorative"', 'serif'],
+                    },
+                    colors: {
+                        portal: {
+                            sky: '#29B6F6',      // Bright sky blue (similar to image_cd1e63.jpg header)
+                            navy: '#0B2447',     // Dark navy blue for main navigation
+                            sidebarHeader: '#A5C0DD', // Soft blue for widget headers
+                            redBackdrop: '#D32F2F', // Indonesian formal red backdrop
+                            goldAccent: '#D4AF37', // Elegant cultural gold
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .news-badge {
+            font-size: 10px;
+            background-color: #0B2447;
+            color: #ffffff;
+            padding: 2px 8px;
+            font-weight: 700;
+            text-transform: lowercase;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans">
+
+    <!-- TOP PORTAL HEADER -->
+    <header class="bg-[#1E88E5] text-white py-4 shadow-sm border-b border-blue-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Left: Logo & School Identity -->
+            <div class="flex items-center space-x-4 text-center md:text-left">
+                <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/30 shadow-inner">
+                    <i class="fa-solid fa-graduation-cap text-white text-3xl"></i>
+                </div>
+                <div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold opacity-90">Dinas Pendidikan Kabupaten Gianyar</span>
+                    <h1 class="block font-serif text-xl sm:text-2xl font-black text-white tracking-wide">SMP Negeri 4 Tegallalang</h1>
+                    <span class="block text-xs font-mono opacity-80 mt-0.5">NPSN: 50105407 NSS: 301220504020</span>
+                </div>
+            </div>
+
+            <!-- Right: Contact info matching references -->
+            <div class="text-center md:text-right text-xs space-y-1 font-medium border-t md:border-t-0 border-white/20 pt-3 md:pt-0 w-full md:w-auto">
+                <p class="text-sm font-bold flex items-center justify-center md:justify-end gap-1.5">
+                    <i class="fa-solid fa-phone"></i> Phone: +62 361 89888840
+                </p>
+                <p class="opacity-90">Alamat: Jl. Uma Tapan, Desa Taro, Kec. Tegallalang</p>
+                <p class="opacity-90">Gianyar, Bali 80561</p>
+                <p class="opacity-95 text-yellow-200">E-mail: smp4tegallalang@gmail.com</p>
+                <p class="opacity-95 text-yellow-200">Laman: www.smpn4tegallalang.sch.id</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- PORTAL NAVIGATION MENU -->
+    <nav class="bg-portal-navy text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-12">
+                <!-- Navigation Items -->
+                <div class="hidden md:flex items-center space-x-1 text-xs font-bold uppercase tracking-wider">
+                    <a href="#home" class="px-4 py-3.5 bg-sky-600 hover:bg-sky-500 transition-all flex items-center gap-1"><i class="fa-solid fa-house"></i> HOME</a>
+                    <a href="#berita" class="px-4 py-3.5 hover:bg-sky-700/50 transition-all">BERITA</a>
+                    <a href="#tentang" class="px-4 py-3.5 hover:bg-sky-700/50 transition-all">TENTANG KAMI</a>
+                    <a href="#akademik" class="px-4 py-3.5 hover:bg-sky-700/50 transition-all">PROGRAM AKADEMIK</a>
+                    <a href="#fasilitas" class="px-4 py-3.5 hover:bg-sky-700/50 transition-all">FASILITAS</a>
+                    <a href="#ekstrakurikuler" class="px-4 py-3.5 hover:bg-sky-700/50 transition-all">EKSTRAKURIKULER</a>
+                    <a href="#prestasi" class="px-4 py-3.5 hover:bg-sky-700/50 transition-all">PRESTASI</a>
+                    <a href="#hubungi" class="px-4 py-3.5 hover:bg-sky-700/50 transition-all">HUBUNGI KAMI</a>
+                </div>
+
+                <!-- Small screen menu button -->
+                <div class="md:hidden w-full flex justify-between items-center py-2">
+                    <span class="text-xs font-bold tracking-widest uppercase">NAVIGASI PORTAL</span>
+                    <button id="mobile-menu-btn" class="text-white p-1 hover:text-sky-300 focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile navigation list -->
+        <div id="mobile-menu-dropdown" class="hidden md:hidden bg-portal-navy/95 border-t border-slate-700 text-xs font-bold uppercase px-4 py-2 space-y-1">
+            <a href="#home" class="block py-2 px-3 hover:bg-sky-600 rounded">HOME</a>
+            <a href="#berita" class="block py-2 px-3 hover:bg-sky-600 rounded">BERITA</a>
+            <a href="#tentang" class="block py-2 px-3 hover:bg-sky-600 rounded">TENTANG KAMI</a>
+            <a href="#akademik" class="block py-2 px-3 hover:bg-sky-600 rounded">PROGRAM AKADEMIK</a>
+            <a href="#fasilitas" class="block py-2 px-3 hover:bg-sky-600 rounded">FASILITAS</a>
+            <a href="#ekstrakurikuler" class="block py-2 px-3 hover:bg-sky-600 rounded">EKSTRAKURIKULER</a>
+            <a href="#prestasi" class="block py-2 px-3 hover:bg-sky-600 rounded">PRESTASI</a>
+            <a href="#hubungi" class="block py-2 px-3 hover:bg-sky-600 rounded">HUBUNGI KAMI</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER (TWO COLUMN GRID) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            
+            <!-- LEFT COLUMN: Main Slider, News, Portals, Media Gallery (Span 8) -->
+            <section class="lg:col-span-8 space-y-6" id="home">
+                
+                <!-- FEATURED SLIDER SECTION -->
+                <div class="relative bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden group">
+                    <div class="relative h-[300px] sm:h-[400px] w-full overflow-hidden bg-slate-900">
+                        <!-- Custom building image (L3_5.jpg) -->
+                        <img src="L3_5.jpg" alt="SMPN 4 Tegallalang" class="w-full h-full object-cover object-center transform scale-100 transition-transform duration-1000 group-hover:scale-102" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200';">
+                        
+                        <!-- Dark gradient overlay for text readability -->
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 pt-16 z-10">
+                            <span class="inline-block bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-2 py-0.5 rounded mb-2">PENGUMUMAN UTAMA</span>
+                            <h2 class="text-white text-base sm:text-lg md:text-xl font-bold hover:text-yellow-400 transition cursor-pointer">
+                                Siswa/i S4T Sabet Prestasi Gemilang dalam Ajang Lomba Pemrograman Game Edukatif Tingkat Nasional 2026
+                            </h2>
+                            <p class="text-slate-300 text-xs mt-1.5 line-clamp-2 max-w-3xl">
+                                <span class="text-red-400 font-bold">[24/06/2026]</span> Berhasil menorehkan prestasi gemilang dengan menyabet gelar juara dalam perancangan komputasi koding game interaktif lokal berbasis budaya Tri Hita Karana di GOR Gianyar.
+                            </p>
+                            <a href="#akademik" class="inline-block mt-3 bg-[#D4AF37] hover:bg-yellow-400 text-slate-950 font-bold text-xs px-4 py-1.5 rounded transition">Selengkapnya</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide Controller Dot Navigation (Mockup) -->
+                    <div class="absolute bottom-4 right-4 z-20 flex space-x-1 text-xs font-mono font-bold select-none">
+                        <span class="px-2.5 py-1 bg-sky-600 text-white rounded cursor-pointer">1</span>
+                        <span class="px-2.5 py-1 bg-white hover:bg-slate-200 text-slate-800 rounded cursor-pointer transition">2</span>
+                        <span class="px-2.5 py-1 bg-white hover:bg-slate-200 text-slate-800 rounded cursor-pointer transition">3</span>
+                        <span class="px-2.5 py-1 bg-white hover:bg-slate-200 text-slate-800 rounded cursor-pointer transition">4</span>
+                    </div>
+                </div>
+
+                <!-- NEWS GRID (2x3 Layout as requested & referenced) -->
+                <div id="berita" class="space-y-4">
+                    <div class="border-b-2 border-portal-navy pb-1 flex justify-between items-center">
+                        <h3 class="text-sm font-bold text-portal-navy uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullhorn text-sky-600"></i> Berita & Kegiatan Terbaru
+                        </h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        
+                        <!-- News Card 1 -->
+                        <article class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm hover:shadow transition flex flex-col justify-between">
+                            <div>
+                                <div class="h-36 bg-slate-200 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=400" alt="Debat S4T" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/1e293b?text=S4T+Debat';">
+                                </div>
+                                <div class="p-3 space-y-1.5">
+                                    <h4 class="font-bold text-xs text-portal-navy line-clamp-2 hover:text-sky-600 transition">
+                                        Tim SFOURTA Sabet Emas Juara 1 Lempar Lembing Porjar Prov. Bali 2026
+                                    </h4>
+                                    <span class="block text-[10px] text-red-500 font-bold">24/06/2026</span>
+                                    <p class="text-[11px] text-slate-500 line-clamp-3">
+                                        Tiga siswa unggulan SMPN 4 Tegallalang berhasil menunjukkan penguasaan argumen kritis dan wawasan sosial budaya dalam kompetisi debat tingkat pelajar.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="px-3 pb-3 flex justify-end">
+                                <span class="news-badge">berita</span>
+                            </div>
+                        </article>
+
+                        <!-- News Card 2 -->
+                        <article class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm hover:shadow transition flex flex-col justify-between">
+                            <div>
+                                <div class="h-36 bg-slate-200 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1544535830-9dff9e0d4dba?q=80&w=400" alt="Koding Game" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/1e293b?text=Kelas+Koding';">
+                                </div>
+                                <div class="p-3 space-y-1.5">
+                                    <h4 class="font-bold text-xs text-portal-navy line-clamp-2 hover:text-sky-600 transition">
+                                        Kreativitas Membanggakan Siswa Warnai Ujian Praktek Koding Game
+                                    </h4>
+                                    <span class="block text-[10px] text-red-500 font-bold">20/06/2026</span>
+                                    <p class="text-[11px] text-slate-500 line-clamp-3">
+                                        Melalui bimbingan Computational Thinking, para siswa meluncurkan prototipe game edukatif bertema pelestarian lingkungan persawahan terasering.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="px-3 pb-3 flex justify-end">
+                                <span class="news-badge">berita</span>
+                            </div>
+                        </article>
+
+                        <!-- News Card 3 -->
+                        <article class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm hover:shadow transition flex flex-col justify-between">
+                            <div>
+                                <div class="h-36 bg-slate-200 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=400" alt="Budaya Bali" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/1e293b?text=Budaya+S4T';">
+                                </div>
+                                <div class="p-3 space-y-1.5">
+                                    <h4 class="font-bold text-xs text-portal-navy line-clamp-2 hover:text-sky-600 transition">
+                                        Perayaan Hari Saraswati Khidmat di Padmasana Sekolah
+                                    </h4>
+                                    <span class="block text-[10px] text-red-500 font-bold">18/06/2026</span>
+                                    <p class="text-[11px] text-slate-500 line-clamp-3">
+                                        Siswa dan guru berbusana adat madya melakukan persembahyangan bersama demi keselamatan intelektualitas dan pembersihan spiritual di area pura sekolah.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="px-3 pb-3 flex justify-end">
+                                <span class="news-badge">berita</span>
+                            </div>
+                        </article>
+
+                        <!-- News Card 4 -->
+                        <article class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm hover:shadow transition flex flex-col justify-between">
+                            <div>
+                                <div class="h-36 bg-slate-200 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=400" alt="Sains S4T" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/1e293b?text=Eksplorasi+Sains';">
+                                </div>
+                                <div class="p-3 space-y-1.5">
+                                    <h4 class="font-bold text-xs text-portal-navy line-clamp-2 hover:text-sky-600 transition">
+                                        Banggakan Sekolah! S4T Raih Medali Perak Karya Ilmiah Remaja
+                                    </h4>
+                                    <span class="block text-[10px] text-red-500 font-bold">12/06/2026</span>
+                                    <p class="text-[11px] text-slate-500 line-clamp-3">
+                                        Penelitian mandiri mengenai sistem penyaringan air ramah lingkungan untuk irigasi subak membuahkan medali kejuaraan provinsi Bali.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="px-3 pb-3 flex justify-end">
+                                <span class="news-badge">berita</span>
+                            </div>
+                        </article>
+
+                        <!-- News Card 5 -->
+                        <article class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm hover:shadow transition flex flex-col justify-between">
+                            <div>
+                                <div class="h-36 bg-slate-200 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=400" alt="Pramuka" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/1e293b?text=Pramuka+S4T';">
+                                </div>
+                                <div class="p-3 space-y-1.5">
+                                    <h4 class="font-bold text-xs text-portal-navy line-clamp-2 hover:text-sky-600 transition">
+                                        Semangat Membara! Antusiasme Kemah Pramuka Penggalang
+                                    </h4>
+                                    <span class="block text-[10px] text-red-500 font-bold">08/06/2026</span>
+                                    <p class="text-[11px] text-slate-500 line-clamp-3">
+                                        Mengasah kepedulian lingkungan, regu penggalang SMPN 4 Tegallalang menggelar aksi bakti bersih sampah plastik di sekitar objek wisata alam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="px-3 pb-3 flex justify-end">
+                                <span class="news-badge">berita</span>
+                            </div>
+                        </article>
+
+                        <!-- News Card 6 -->
+                        <article class="bg-white rounded border border-slate-200 overflow-hidden shadow-sm hover:shadow transition flex flex-col justify-between">
+                            <div>
+                                <div class="h-36 bg-slate-200 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=400" alt="Kesenian Bali" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/1e293b?text=Seni+Tari';">
+                                </div>
+                                <div class="p-3 space-y-1.5">
+                                    <h4 class="font-bold text-xs text-portal-navy line-clamp-2 hover:text-sky-600 transition">
+                                        Klub Seni Tari S4T Mengisi Pembukaan Pameran Budaya Gianyar
+                                    </h4>
+                                    <span class="block text-[10px] text-red-500 font-bold">04/06/2026</span>
+                                    <p class="text-[11px] text-slate-500 line-clamp-3">
+                                        Membawakan garapan Tari Penyambutan khas Tegallalang, siswa-siswi S4T memukau tamu kehormatan pameran adat Gianyar.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="px-3 pb-3 flex justify-end">
+                                <span class="news-badge">berita</span>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- TENTANG SEKOLAH SECTION -->
+                <div id="tentang" class="bg-white rounded-lg border border-slate-200 shadow-sm p-5 space-y-4">
+                    <div class="border-b-2 border-portal-navy pb-1">
+                        <h3 class="text-sm font-bold text-portal-navy uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-school text-sky-600"></i> Tentang SMPN 4 Tegallalang
+                        </h3>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <div class="p-4 bg-slate-50 rounded border-l-4 border-amber-500">
+                            <h4 class="font-bold text-slate-900 uppercase tracking-wide mb-1 text-xs">Visi Sekolah</h4>
+                            <p class="font-serif italic text-portal-navy font-semibold text-xs sm:text-sm">
+                                "Terwujudnya Peserta didik yang Cerdas, Taqwa, Berkarakter, dan Berbudaya berlandaskan Tri Hita Karana."
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-900 uppercase tracking-wide mb-2 text-xs">Misi Sekolah</h4>
+                            <ul class="space-y-2 list-none pl-1">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-circle-check text-green-600 mt-1 shrink-0 text-xs"></i>
+                                    <span>Menyelenggarakan tata kelola pembelajaran berbasis logika komputasi cerdas (koding) untuk menyongsong era industri digital.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-circle-check text-green-600 mt-1 shrink-0 text-xs"></i>
+                                    <span>Menanamkan karakter ketakwaan, kejujuran sosial, dan keadaban akhlak luhur lewat pendekatan keteladanan.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-circle-check text-green-600 mt-1 shrink-0 text-xs"></i>
+                                    <span>Melestarikan khazanah adat kesenian Bali tradisional demi menegakkan peradaban budaya daerah yang luhur.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-circle-check text-green-600 mt-1 shrink-0 text-xs"></i>
+                                    <span>Menjaga kelestarian palemahan ekologi lingkungan sekolah yang asri, hijau, bersih, dan harmonis.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-900 uppercase tracking-wide mb-1 text-xs">Sejarah Singkat</h4>
+                            <p class="text-xs">
+                                Didirikan di tengah sejuknya pemandangan sawah terasering di Kabupaten Gianyar, Bali, SMP Negeri 4 Tegallalang berkomitmen penuh melahirkan lulusan berdaya saing global yang adaptif sains digital, sembari memelihara ikatan spiritualitas dan budaya lokal yang kokoh.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROGRAM AKADEMIK - KELAS KODING & MINI GAME -->
+                <div id="akademik" class="bg-slate-950 text-slate-100 rounded-lg border border-slate-800 shadow-xl p-5 space-y-4">
+                    <div class="border-b border-slate-800 pb-2 flex justify-between items-center">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-1.5 font-mono">
+                            <span class="text-green-500">&lt;/&gt;</span> Program Akademik: Koding Game
+                        </h3>
+                        <span class="text-[10px] bg-amber-500/10 text-amber-500 border border-amber-500/20 px-2 py-0.5 rounded font-mono font-bold">KARYA SISWA KELAS VIII</span>
+                    </div>
+
+                    <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                        Kami mengajarkan literasi koding sebagai wadah melatih logika pemrograman berpikir kritis (*Computational Thinking*). Mainkan demo game **"S4T Smart Adventure"** karya siswa kami di bawah ini:
+                    </p>
+
+                    <!-- Interactive Game Canvas Container -->
+                    <div class="bg-slate-900 rounded-lg p-3 border border-slate-800">
+                        <div class="flex justify-between items-center bg-slate-950 px-3 py-1.5 rounded text-xs font-mono mb-3">
+                            <div>Skor Cerdas: <span id="game-score" class="text-amber-400 font-bold">0</span></div>
+                            <div>Status: <span id="game-status" class="text-emerald-400 font-bold uppercase">Beraksi</span></div>
+                        </div>
+
+                        <!-- Canvas Box -->
+                        <div class="relative w-full aspect-[4/3] max-h-[260px] bg-slate-950 rounded-lg overflow-hidden flex items-center justify-center border border-slate-800">
+                            <!-- Overlay Start -->
+                            <div id="game-overlay" class="absolute inset-0 bg-slate-950/95 z-20 flex flex-col items-center justify-center p-4 text-center">
+                                <i class="fa-solid fa-gamepad text-amber-500 text-3xl mb-2 animate-bounce"></i>
+                                <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider">S4T Smart Adventure</h4>
+                                <p class="text-[10px] text-slate-400 max-w-xs mt-1">
+                                    Kumpulkan <strong>Buku Cerdas</strong> <span class="text-yellow-400">(🟡)</span> dan hindari <strong>Kemalasan</strong> <span class="text-red-500">(🔴)</span>!
+                                </p>
+                                <button id="start-game-btn" class="mt-3 px-5 py-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded transition shadow-md">
+                                    MULAI BERMAIN
+                                </button>
+                            </div>
+
+                            <!-- Mobile Touch Controls -->
+                            <div class="absolute bottom-2 inset-x-2 z-10 flex justify-between pointer-events-none md:hidden">
+                                <button id="btn-left" class="pointer-events-auto w-10 h-10 bg-white/10 active:bg-white/25 rounded-full flex items-center justify-center text-white text-base border border-white/15 select-none">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                </button>
+                                <button id="btn-right" class="pointer-events-auto w-10 h-10 bg-white/10 active:bg-white/25 rounded-full flex items-center justify-center text-white text-base border border-white/15 select-none">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <canvas id="gameCanvas" class="w-full h-full block bg-slate-950"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FASILITAS SEKOLAH -->
+                <div id="fasilitas" class="bg-white rounded-lg border border-slate-200 shadow-sm p-5 space-y-4">
+                    <div class="border-b-2 border-portal-navy pb-1">
+                        <h3 class="text-sm font-bold text-portal-navy uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-building-circle-check text-sky-600"></i> Fasilitas Pendidikan
+                        </h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-3 bg-slate-50 rounded border border-slate-150 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded bg-sky-100 text-sky-600 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-900 uppercase">Laboratorium Komputer & IPA</h4>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Dilengkapi komputer berspesifikasi unggul dan jaringan LAN untuk menunjang kebutuhan kelas koding game.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded border border-slate-150 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded bg-sky-100 text-sky-600 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-900 uppercase">Perpustakaan Sastra Mandiri</h4>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Menyimpan koleksi bahan bacaan ilmiah, karya sastra lokal, modul teknologi informatika, dan e-book.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded border border-slate-150 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded bg-sky-100 text-sky-600 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-gopuram"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-900 uppercase">Tempat Ibadah Padmasana</h4>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Tempat ibadah suci Pura Padmasana sekolah yang asri, tenang, mendukung penguatan spiritual siswa Hindu.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded border border-slate-150 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded bg-sky-100 text-sky-600 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-masks-theater"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-900 uppercase">Aula Pentas & Seni</h4>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Gedung pertunjukan seni terbuka untuk melatih keterampilan tari adat Bali dan menabuh gamelan.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded border border-slate-150 flex items-start gap-3 col-span-1 md:col-span-2">
+                            <div class="w-10 h-10 rounded bg-sky-100 text-sky-600 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-photo-film"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-900 uppercase">Ruang Multimedia & Broadcast</h4>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Gedung interaktif berproyektor pintar terintegrasi audio canggih guna presentasi digital siswa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GALERI FOTO & SOSIAL MEDIA -->
+                <div class="bg-white rounded-lg border border-slate-200 shadow-sm p-5 space-y-4">
+                    <div class="border-b-2 border-portal-navy pb-1">
+                        <h3 class="text-sm font-bold text-portal-navy uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-images text-sky-600"></i> Galeri Kegiatan Sekolah
+                        </h3>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div class="h-24 bg-slate-200 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=200" alt="Galeri 1" class="w-full h-full object-cover">
+                        </div>
+                        <div class="h-24 bg-slate-200 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544535830-9dff9e0d4dba?q=80&w=200" alt="Galeri 2" class="w-full h-full object-cover">
+                        </div>
+                        <div class="h-24 bg-slate-200 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=200" alt="Galeri 3" class="w-full h-full object-cover">
+                        </div>
+                        <div class="h-24 bg-slate-200 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=200" alt="Galeri 4" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-start">
+                        <a href="https://instagram.com/smpn4.tegallalang" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white font-bold text-xs px-4 py-2 rounded flex items-center gap-1.5 transition">
+                            <i class="fa-brands fa-instagram"></i> Kunjungi kami @smpn4.tegallalang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TESTIMONI ALUMNI -->
+                <div class="bg-white rounded-lg border border-slate-200 shadow-sm p-5 space-y-4">
+                    <div class="border-b-2 border-portal-navy pb-1">
+                        <h3 class="text-sm font-bold text-portal-navy uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-comments text-sky-600"></i> Kesaksian Alumni & Siswa
+                        </h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-50 border rounded text-xs leading-relaxed italic text-slate-600 relative">
+                            "Masa-masa bersekolah di SMPN 4 Tegallalang menempa mental kedisiplinan dan kecintaan saya terhadap sains koding yang membimbing karier saya saat ini."
+                            <div class="mt-2 text-right font-bold not-italic text-portal-navy font-sans text-[10px]">
+                                — I Kadek Mertayasa, S.Kom (Alumni Kelas Koding)
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50 border rounded text-xs leading-relaxed italic text-slate-600 relative">
+                            "Saya sangat menyukai lingkungan asrinya. Pembelajaran karakter berbudaya berlandaskan Tri Hita Karana diajarkan secara riil setiap hari."
+                            <div class="mt-2 text-right font-bold not-italic text-portal-navy font-sans text-[10px]">
+                                — Ni Luh Putu Devika (Siswa Kelas IX / OSIS)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- RIGHT COLUMN: SIDEBAR WIDGETS (Span 4) -->
+            <aside class="lg:col-span-4 space-y-6">
+                
+                <!-- WIDGET 1: KEPALA SEKOLAH (Red backdrop photo) -->
+                <div class="bg-white rounded border border-slate-200 shadow-sm overflow-hidden text-center">
+                    <div class="bg-portal-sidebarHeader py-2 px-4 font-bold text-xs text-portal-navy uppercase tracking-wider border-b text-left">
+                        Kepala Sekolah
+                    </div>
+                    <div class="p-5 flex flex-col items-center">
+                        <!-- Formal red backdrop photo styling matching Indonesian schools -->
+                        <div class="w-36 h-48 bg-portal-redBackdrop rounded p-1.5 shadow border border-slate-300">
+                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=200" alt="Foto Kepala Sekolah" class="w-full h-full object-cover object-top filter contrast-105" onerror="this.onerror=null; this.src='https://placehold.co/150x200/d32f2f/ffffff?text=I+Wayan+Sudarta';">
+                        </div>
+                        <h4 class="font-bold text-xs text-portal-navy mt-4">Ngakan Putu Suwendra, S. Si.</h4>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase mt-1">Kepala Sekolah SMPN 4 Tegallalang</p>
+                    </div>
+                </div>
+
+                <!-- WIDGET 2: PROFIL WAKASEK (Carousel switchable) -->
+                <div class="bg-white rounded border border-slate-200 shadow-sm overflow-hidden text-center">
+                    <div class="bg-portal-sidebarHeader py-2 px-4 font-bold text-xs text-portal-navy uppercase tracking-wider border-b text-left">
+                        Profil Pendidik
+                    </div>
+                    <div class="p-5 flex flex-col items-center space-y-3">
+                        <div class="w-24 h-24 bg-slate-100 rounded-full overflow-hidden border-2 border-sky-400">
+                            <img id="wakasek-pic" src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=200" alt="Wakasek" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='https://placehold.co/150x150/0b2447/ffffff?text=Wakasek';">
+                        </div>
+                        <div>
+                            <h4 id="wakasek-name" class="font-bold text-xs text-portal-navy">Ni Ketut Suartini, S.Pd.</h4>
+                            <p id="wakasek-title" class="text-[10px] text-slate-400 font-bold uppercase">Wakil Kepala Sekolah Kurikulum</p>
+                        </div>
+                        <!-- Simple Pagination Dots for Profil Carousel -->
+                        <div class="flex justify-center space-x-1.5">
+                            <button id="wakasek-dot-1" class="w-2.5 h-2.5 bg-sky-600 rounded-full focus:outline-none"></button>
+                            <button id="wakasek-dot-2" class="w-2.5 h-2.5 bg-slate-300 hover:bg-sky-400 rounded-full focus:outline-none"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WIDGET 3: PANDUAN PPDB 2026/2027 -->
+                <div class="bg-white rounded border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-portal-sidebarHeader py-2 px-4 font-bold text-xs text-portal-navy uppercase tracking-wider border-b">
+                        Panduan PPDB 2026/2027
+                    </div>
+                    <div class="p-4 space-y-4 text-xs">
+                        <!-- Custom illustration graphic resembling cartoon mascot reference -->
+                        <div class="w-full bg-slate-150 rounded p-4 flex flex-col items-center justify-center border border-slate-200 bg-gradient-to-br from-sky-50 to-amber-50">
+                            <!-- SVGs of cute students for academic portal feel -->
+                            <svg class="w-28 h-24 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                            </svg>
+                            <span class="block font-bold text-center text-portal-navy mt-2 text-[11px] uppercase tracking-wide">Penerimaan Siswa Baru</span>
+                        </div>
+
+                        <p class="text-[11px] text-slate-500 text-center leading-relaxed">
+                            Pendaftaran calon siswa baru tingkat SMP jalur zonasi, prestasi, dan afirmasi kini dapat diakses secara daring penuh.
+                        </p>
+
+                        <!-- PPDB Action Buttons -->
+                        <div class="space-y-2">
+                            <button onclick="alert('Panduan Teknis sedang diunduh...')" class="w-full bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold py-2 px-3 rounded shadow-sm text-center font-sans tracking-wide transition">
+                                Petunjuk Teknis PPDB 2026/2027
+                            </button>
+                            <button onclick="alert('Daya Tampung SMPN 4 Tegallalang: 240 Siswa (8 Rombel)')" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-3 rounded shadow-sm text-center font-sans tracking-wide transition">
+                                SK Penetapan Daya Tampung Sekolah
+                            </button>
+                        </div>
+
+                        <!-- CARA PENDAFTARAN JALUR (Pills) -->
+                        <div class="space-y-2 pt-2 border-t">
+                            <h5 class="font-bold text-[10px] text-slate-400 uppercase tracking-wider">Pendaftaran Jalur:</h5>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-1 bg-emerald-500 text-white text-[9px] font-bold rounded">Zonasi (Domisili)</span>
+                                <span class="px-2 py-1 bg-sky-500 text-white text-[9px] font-bold rounded">Afirmasi (Disabilitas/Keluarga Kurang Mampu)</span>
+                                <span class="px-2 py-1 bg-indigo-500 text-white text-[9px] font-bold rounded">Perpindahan Tugas Orang Tua/Wali</span>
+                                <span class="px-2 py-1 bg-violet-500 text-white text-[9px] font-bold rounded">Prestasi Nilai Rapor</span>
+                                <span class="px-2 py-1 bg-fuchsia-500 text-white text-[9px] font-bold rounded">Prestasi Non-Akademik (Seni/Olahraga/Sastra)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WIDGET 4: EKSTRAKURIKULER & ORGANISASI -->
+                <div id="ekstrakurikuler" class="bg-white rounded border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-portal-sidebarHeader py-2 px-4 font-bold text-xs text-portal-navy uppercase tracking-wider border-b">
+                        Organisasi & Ekstrakurikuler
+                    </div>
+                    <div class="p-4 space-y-3 text-xs font-semibold">
+                        <div class="flex items-center gap-3 p-1.5 bg-slate-50 hover:bg-sky-50 rounded transition cursor-pointer">
+                            <div class="w-8 h-8 rounded bg-amber-100 text-amber-600 flex items-center justify-center text-base"><i class="fa-solid fa-users-viewfinder"></i></div>
+                            <div>
+                                <h5 class="text-xs text-slate-800">Organisasi Siswa Intra Sekolah (OSIS)</h5>
+                                <p class="text-[9px] text-slate-400 font-normal">Wadah kepemimpinan dan manajerial siswa</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 p-1.5 bg-slate-50 hover:bg-sky-50 rounded transition cursor-pointer">
+                            <div class="w-8 h-8 rounded bg-amber-100 text-amber-600 flex items-center justify-center text-base"><i class="fa-solid fa-tent"></i></div>
+                            <div>
+                                <h5 class="text-xs text-slate-800">Gerakan Pramuka S4T</h5>
+                                <p class="text-[9px] text-slate-400 font-normal">Mengasah kecintaan alam dan kemandirian</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 p-1.5 bg-slate-50 hover:bg-sky-50 rounded transition cursor-pointer">
+                            <div class="w-8 h-8 rounded bg-amber-100 text-amber-600 flex items-center justify-center text-base"><i class="fa-solid fa-briefcase-medical"></i></div>
+                            <div>
+                                <h5 class="text-xs text-slate-800">Palang Merah Remaja (PMR)</h5>
+                                <p class="text-[9px] text-slate-400 font-normal">Edukasi kesehatan & kepedulian sosial</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 p-1.5 bg-slate-50 hover:bg-sky-50 rounded transition cursor-pointer">
+                            <div class="w-8 h-8 rounded bg-amber-100 text-amber-600 flex items-center justify-center text-base"><i class="fa-solid fa-flag"></i></div>
+                            <div>
+                                <h5 class="text-xs text-slate-800">Paskibra Sekolah</h5>
+                                <p class="text-[9px] text-slate-400 font-normal">Formasi baris-berbaris dan upacara kenegaraan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 p-1.5 bg-slate-50 hover:bg-sky-50 rounded transition cursor-pointer">
+                            <div class="w-8 h-8 rounded bg-amber-100 text-amber-600 flex items-center justify-center text-base"><i class="fa-solid fa-music"></i></div>
+                            <div>
+                                <h5 class="text-xs text-slate-800">Klub Tari Adat & Tabuh Gamelan</h5>
+                                <p class="text-[9px] text-slate-400 font-normal">Pelestarian seni budaya warisan leluhur Bali</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WIDGET 5: PRESTASI TERBARU -->
+                <div id="prestasi" class="bg-white rounded border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-portal-sidebarHeader py-2 px-4 font-bold text-xs text-portal-navy uppercase tracking-wider border-b">
+                        Penghargaan Terakhir
+                    </div>
+                    <div class="p-4 space-y-3 text-xs leading-relaxed">
+                        <div class="border-b pb-2">
+                            <span class="text-[9px] bg-sky-100 text-sky-700 font-bold px-2 py-0.5 rounded">AKADEMIK</span>
+                            <h5 class="font-bold text-slate-800 mt-1">Juara I Olimpiade Coding Pemrograman</h5>
+                            <p class="text-[10px] text-slate-500">Menciptakan purwarupa game edukasi interaktif bertema "Subak Cerdas" di tingkat regional Bali.</p>
+                        </div>
+                        <div class="border-b pb-2">
+                            <span class="text-[9px] bg-sky-100 text-sky-700 font-bold px-2 py-0.5 rounded">OLAHRAGA</span>
+                            <h5 class="font-bold text-slate-800 mt-1">Juara II Karate Perorangan Putra</h5>
+                            <p class="text-[10px] text-slate-500">Membawa pulang medali perak dalam kejuaraan Karate Kata Pelajar se-Kabupaten Gianyar.</p>
+                        </div>
+                        <div>
+                            <span class="text-[9px] bg-sky-100 text-sky-700 font-bold px-2 py-0.5 rounded">SENI & BUDAYA</span>
+                            <h5 class="font-bold text-slate-800 mt-1">Juara Umum Festival Tari Tradisional</h5>
+                            <p class="text-[10px] text-slate-500">Pentas tari garapan kolosal kolaboratif di panggung festival budaya tahunan Gianyar.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- CONTACT SECTION (HUBUNGI KAMI) -->
+    <section id="hubungi" class="bg-slate-200 py-10 border-t border-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                
+                <!-- School Location Map (Span 5) -->
+                <div class="md:col-span-5 space-y-4 text-xs">
+                    <h3 class="text-sm font-bold text-portal-navy uppercase tracking-wider border-b border-slate-400 pb-1.5">
+                        <i class="fa-solid fa-map-location-dot"></i> Peta Lokasi Sekolah
+                    </h3>
+                    <div class="w-full h-64 bg-slate-300 rounded border border-slate-400 overflow-hidden shadow-inner relative">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15783.351052601275!2d115.27986045000001!3d-8.417596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd223cd3a4913fb%3A0xc6cb18126786c55c!2sTegallalang%2C%20Gianyar%20Regency%2C%20Bali!5e0!3m2!1sen!2sid!4v1680000000000!5m2!1sen!2sid" class="w-full h-full border-none" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <p class="text-[11px] text-slate-500 leading-normal">
+                        Kunjungi kami di area hijau Kecamatan Tegallalang, Kabupaten Gianyar, Bali. Jam pelayanan akademik: Senin - Sabtu (07:30 WITA - 14:00 WITA).
+                    </p>
+                </div>
+
+                <!-- Feedback Form (Span 7) -->
+                <div class="md:col-span-7 bg-white p-5 rounded border border-slate-300 shadow-sm space-y-4">
+                    <h3 class="text-sm font-bold text-portal-navy uppercase tracking-wider border-b pb-1.5">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Surat Keamanan / Kontak Kami
+                    </h3>
+                    
+                    <form id="portal-contact-form" class="space-y-3 text-xs" onsubmit="event.preventDefault(); alert('Matur Suksma! Terima kasih, pesan atau kritik saran Anda telah terkirim ke sistem administrasi kami.');">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-slate-500 font-bold uppercase tracking-wider mb-1">Nama Pengirim</label>
+                                <input type="text" placeholder="cth: I Wayan Sudi" class="w-full px-3 py-2 bg-slate-50 border rounded focus:outline-none focus:ring-1 focus:ring-sky-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-slate-500 font-bold uppercase tracking-wider mb-1">Kontak Email / Telpon</label>
+                                <input type="text" placeholder="cth: sydi@email.com" class="w-full px-3 py-2 bg-slate-50 border rounded focus:outline-none focus:ring-1 focus:ring-sky-500" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-slate-500 font-bold uppercase tracking-wider mb-1">Isi Pesan / Saran</label>
+                            <textarea rows="4" placeholder="Tuliskan isi pesan, saran, atau pertanyaan mengenai PPDB disini..." class="w-full px-3 py-2 bg-slate-50 border rounded focus:outline-none focus:ring-1 focus:ring-sky-500" required></textarea>
+                        </div>
+
+                        <button type="submit" class="bg-portal-navy hover:bg-sky-700 text-white font-bold py-2 px-4 rounded shadow transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-check"></i> KIRIM SURAT ELEKTRONIK
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-portal-navy text-slate-400 py-8 border-t-2 border-amber-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 text-xs">
+            <div class="flex justify-center space-x-4 text-base">
+                <a href="#" class="hover:text-amber-500 transition-all"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-amber-500 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-amber-500 transition-all"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="hover:text-amber-500 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <p>&copy; 2026 SMP Negeri 4 Tegallalang. Seluruh Hak Cipta Dilindungi.</p>
+            <p class="text-[10px] text-slate-600 font-mono">Dikelola oleh Tim Computational Thinking & Jaringan IT S4T.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // 1. Mobile Menu Open/Close trigger
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuDropdown.classList.toggle('hidden');
+        });
+
+        // 2. Profil Wakasek Switcher (Mockup Carousel)
+        const wakasekPic = document.getElementById('wakasek-pic');
+        const wakasekName = document.getElementById('wakasek-name');
+        const wakasekTitle = document.getElementById('wakasek-title');
+        const dot1 = document.getElementById('wakasek-dot-1');
+        const dot2 = document.getElementById('wakasek-dot-2');
+
+        const profiles = [
+            {
+                name: "Ni Ketut Suartini, S.Pd.",
+                title: "Wakil Kepala Sekolah Kurikulum",
+                pic: "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=200"
+            },
+            {
+                name: "I Made Sukadana, S.Pd., M.H.",
+                title: "Wakil Kepala Sekolah Kesiswaan",
+                pic: "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=200"
+            }
+        ];
+
+        function switchWakasek(idx) {
+            wakasekName.innerText = profiles[idx].name;
+            wakasekTitle.innerText = profiles[idx].title;
+            
+            if (idx === 0) {
+                dot1.className = "w-2.5 h-2.5 bg-sky-600 rounded-full focus:outline-none";
+                dot2.className = "w-2.5 h-2.5 bg-slate-300 hover:bg-sky-400 rounded-full focus:outline-none";
+            } else {
+                dot1.className = "w-2.5 h-2.5 bg-slate-300 hover:bg-sky-400 rounded-full focus:outline-none";
+                dot2.className = "w-2.5 h-2.5 bg-sky-600 rounded-full focus:outline-none";
+            }
+        }
+
+        dot1.addEventListener('click', () => switchWakasek(0));
+        dot2.addEventListener('click', () => switchWakasek(1));
+
+        // 3. Mini-Game "S4T Smart Adventure" - Custom code block
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const gameOverlay = document.getElementById('game-overlay');
+        const startGameBtn = document.getElementById('start-game-btn');
+        const scoreSpan = document.getElementById('game-score');
+        const statusSpan = document.getElementById('game-status');
+
+        // Touch triggers
+        const btnLeft = document.getElementById('btn-left');
+        const btnRight = document.getElementById('btn-right');
+
+        function resizeGame() {
+            const rect = canvas.parentNode.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+        }
+        window.addEventListener('resize', resizeGame);
+        resizeGame();
+
+        let gameActive = false;
+        let score = 0;
+        let playerWidth = 40;
+        let playerHeight = 12;
+        let playerX = canvas.width / 2 - playerWidth / 2;
+        let playerY = canvas.height - 25;
+        let playerSpeed = 6;
+
+        let moveLeft = false;
+        let moveRight = false;
+
+        let items = [];
+        let obstacles = [];
+        let spawnTimer = 0;
+        let gameLoopId;
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'Left') moveLeft = true;
+            if (e.key === 'ArrowRight' || e.key === 'Right') moveRight = true;
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'Left') moveLeft = false;
+            if (e.key === 'ArrowRight' || e.key === 'Right') moveRight = false;
+        });
+
+        btnLeft.addEventListener('touchstart', (e) => { e.preventDefault(); moveLeft = true; });
+        btnLeft.addEventListener('touchend', (e) => { e.preventDefault(); moveLeft = false; });
+        btnRight.addEventListener('touchstart', (e) => { e.preventDefault(); moveRight = true; });
+        btnRight.addEventListener('touchend', (e) => { e.preventDefault(); moveRight = false; });
+
+        function startMiniGame() {
+            gameActive = true;
+            score = 0;
+            scoreSpan.innerText = score;
+            statusSpan.innerText = "Beraksi";
+            statusSpan.className = "text-emerald-400 font-bold uppercase";
+            items = [];
+            obstacles = [];
+            playerX = canvas.width / 2 - playerWidth / 2;
+            spawnTimer = 0;
+            
+            gameOverlay.classList.add('hidden');
+            
+            cancelAnimationFrame(gameLoopId);
+            gameLoop();
+        }
+
+        startGameBtn.addEventListener('click', startMiniGame);
+
+        function gameLoop() {
+            if (!gameActive) return;
+
+            if (moveLeft && playerX > 0) playerX -= playerSpeed;
+            if (moveRight && playerX < canvas.width - playerWidth) playerX += playerSpeed;
+
+            spawnTimer++;
+            if (spawnTimer % 60 === 0) {
+                if (Math.random() < 0.6) {
+                    items.push({
+                        x: Math.random() * (canvas.width - 20) + 10,
+                        y: -10,
+                        radius: 6,
+                        speed: Math.random() * 2 + 2
+                    });
+                } else {
+                    obstacles.push({
+                        x: Math.random() * (canvas.width - 20) + 10,
+                        y: -10,
+                        radius: 6,
+                        speed: Math.random() * 2 + 2.5
+                    });
+                }
+            }
+
+            // Update items
+            for (let i = items.length - 1; i >= 0; i--) {
+                items[i].y += items[i].speed;
+                if (items[i].y + items[i].radius >= playerY && 
+                    items[i].x >= playerX && 
+                    items[i].x <= playerX + playerWidth) {
+                    score += 10;
+                    scoreSpan.innerText = score;
+                    items.splice(i, 1);
+                    continue;
+                }
+                if (items[i] && items[i].y > canvas.height) items.splice(i, 1);
+            }
+
+            // Update obstacles
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                obstacles[i].y += obstacles[i].speed;
+                if (obstacles[i].y + obstacles[i].radius >= playerY && 
+                    obstacles[i].x >= playerX && 
+                    obstacles[i].x <= playerX + playerWidth) {
+                    gameActive = false;
+                    statusSpan.innerText = "Malas!";
+                    statusSpan.className = "text-red-500 font-bold uppercase";
+                    
+                    gameOverlay.innerHTML = `
+                        <i class="fa-solid fa-face-frown text-red-500 text-3xl mb-1"></i>
+                        <h4 class="font-serif text-xs font-bold text-white uppercase">Kena Kemalasan!</h4>
+                        <p class="text-[10px] text-slate-400">Terus giat belajar koding. Skor akhir:</p>
+                        <span class="text-amber-500 text-xl font-bold font-mono my-1">${score} Poin</span>
+                        <button id="restart-game-btn" class="px-4 py-1.5 bg-amber-500 text-slate-950 font-bold text-xs rounded shadow transition mt-1">
+                            COBA LAGI
+                        </button>
+                    `;
+                    document.getElementById('restart-game-btn').addEventListener('click', startMiniGame);
+                    gameOverlay.classList.remove('hidden');
+                    return;
+                }
+                if (obstacles[i] && obstacles[i].y > canvas.height) obstacles.splice(i, 1);
+            }
+
+            // Render
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw grids
+            ctx.strokeStyle = 'rgba(165, 192, 221, 0.05)';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < canvas.width; x += 30) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+            }
+            for (let y = 0; y < canvas.height; y += 30) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+            }
+
+            // Draw player (Student Hat Brim)
+            ctx.fillStyle = '#D4AF37';
+            ctx.beginPath();
+            ctx.roundRect(playerX, playerY, playerWidth, playerHeight, 4);
+            ctx.fill();
+
+            // Draw books (🟡)
+            ctx.fillStyle = '#D4AF37';
+            items.forEach(item => {
+                ctx.beginPath();
+                ctx.arc(item.x, item.y, item.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // Draw obstacles (🔴)
+            ctx.fillStyle = '#ef4444';
+            obstacles.forEach(obs => {
+                ctx.beginPath();
+                ctx.arc(obs.x, obs.y, obs.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            gameLoopId = requestAnimationFrame(gameLoop);
+        }
+    </script>
+</body>
+</html>
